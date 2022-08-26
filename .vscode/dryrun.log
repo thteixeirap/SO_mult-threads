@@ -1,0 +1,12 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/lucas/Downloads/Simple-Hash-main_c++'
+mkdir -p ./build/
+mkdir -p ./build/objects
+mkdir -p build/objects/src
+g++ -pedantic-errors -Wall -Wextra -Werror -Iinclude/ -o build/objects/src/main.o -c src/main.cpp
+mkdir -p build/objects/src
+g++ -pedantic-errors -Wall -Wextra -Werror -Iinclude/ -o build/objects/src/read_database.o -c src/read_database.cpp
+mkdir -p build/
+g++ -pedantic-errors -Wall -Wextra -Werror -Iinclude/ -lstdc++ -lm -o ./build//app ./build/objects/src/main.o ./build/objects/src/read_database.o
+make: Leaving directory '/home/lucas/Downloads/Simple-Hash-main_c++'
+ 
