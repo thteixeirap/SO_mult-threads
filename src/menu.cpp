@@ -10,7 +10,8 @@ void menu()
         cout << endl;
         cout << "[1] - Read and store [D.csv]" << endl;
         cout << "[2] - Read and store [T.csv]" << endl;
-        cout << "[3] - Exit" << endl;
+        cout << "[3] - Compare hash D with T and generate file" << endl;
+        cout << "[0] - Exit" << endl;
 
         cout << "Choose an option:  ";
         cin >> op;
@@ -28,12 +29,19 @@ void menu()
             break;
 
         case 3:
-            cout << endl << "Finished Program" << endl << endl;
+           comparingHash();
+            break;
+        
+
+        case 0:
+            cout << endl
+                 << "Finished Program" << endl
+                 << endl;
             break;
 
         default:
             break;
         }
 
-    } while (op != 3);
+    } while (op != 0);
 }
