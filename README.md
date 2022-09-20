@@ -24,8 +24,9 @@ claro, tudo de forma simulada para que possamos extrair resultados mensuráveis 
 ```sh
     make run
 ```
-## Saídas
-![Captura de tela de 2022-08-28 20-52-56](https://user-images.githubusercontent.com/78819692/187100000-08a6946e-85d2-47b8-b173-766c2a1ce142.png)
+## Saídas!
+
+[Captura de tela de 2022-09-19 22-20-15](https://user-images.githubusercontent.com/78819692/191146735-1ca79056-c720-4d9e-bed0-d7d0ec6440e6.png)
 
 * Menu exibido na iniciação do programa
 
@@ -36,4 +37,13 @@ claro, tudo de forma simulada para que possamos extrair resultados mensuráveis 
 ![Captura de tela de 2022-08-28 20-53-26](https://user-images.githubusercontent.com/78819692/187100160-e4566379-65c1-42e6-862c-68743402fe29.png)
 
 * Exemplo de sáida da hash de classes, sendo a key o nome da classe e em seguida as posições das linhas em que repete cada classe.
+
+![Captura de tela de 2022-09-19 22-20-46](https://user-images.githubusercontent.com/78819692/191146768-92de063a-70fa-4c0a-8bae-dc3220a13624.png)
+
+* Exemplo de saída da hash de processos[T.csv]
+
+![Captura de tela de 2022-09-19 22-21-45](https://user-images.githubusercontent.com/78819692/191146819-e3346398-c978-4cde-822a-905f2c1f284d.png)
+
+* Exemplo do formato do aquivo txt que é criado referente as combinações das hash's.
+
 
