@@ -26,7 +26,7 @@ claro, tudo de forma simulada para que possamos extrair resultados mensuráveis 
 ```
 ## Saídas!
 
-[Captura de tela de 2022-09-19 22-20-15](https://user-images.githubusercontent.com/78819692/191146735-1ca79056-c720-4d9e-bed0-d7d0ec6440e6.png)
+![Captura de tela de 2022-09-19 22-20-15](https://user-images.githubusercontent.com/78819692/191146735-1ca79056-c720-4d9e-bed0-d7d0ec6440e6.png)
 
 * Menu exibido na iniciação do programa
 
