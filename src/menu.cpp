@@ -7,36 +7,56 @@ void menu()
 
     do
     {
-        cout << endl;
-        cout << "[1] - Read and store [D.csv]" << endl;
-        cout << "[2] - Read and store [T.csv]" << endl;
-        cout << "[3] - Compare hash D with T and generate file" << endl;
-        cout << "[0] - Exit" << endl;
 
-        cout << "Choose an option:  ";
+        printf("\n\n");
+        printf("      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+        printf("      @                                                   @\n");
+        printf("      @                        MENU                       @\n");
+        printf("      @                                                   @\n");
+        printf("      @    [1] -> Read and store [D.csv] and [T.csv]      @\n");
+        printf("      @    [2] -> Make the T hash combinates              @\n");
+        printf("      @    [3] -> Make intersection                       @\n");
+        printf("      @    [0] -> Exit                                    @\n");
+        printf("      @                                                   @\n");
+        printf("      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n\n");
+
+        cout << endl
+             << "Choose an option:  ";
         cin >> op;
 
         switch (op)
         {
         case 1:
             readFileD("src/dataset/D.csv");
+            cout << endl
+                 << " File D Read" << endl;
+            readFileT("src/dataset/T.csv");
+            cout << endl
+                 << " File T Read" << endl;
             printOutHashD();
+            printOutHashT();
+
             break;
 
         case 2:
-            readFileT("src/dataset/T.csv");
-            printOutHashT();
-            break;
 
-        case 3:
-           comparingHash();
+            makeCombinate();
+            cout << endl
+                 << endl
+                 << "\t\t\t COMBINATE HASH " << endl
+                 << endl;
+            printOutHashCombinate();
             break;
-        
 
         case 0:
             cout << endl
                  << "Finished Program" << endl
                  << endl;
+            break;
+
+        case 3:
+            intersection();
+            exit(0);
             break;
 
         default:
