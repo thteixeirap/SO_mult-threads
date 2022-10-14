@@ -58,3 +58,4 @@ Aqui esta como foi feita todas as combinações possíveis da linha, sendo prime
 ![Captura de tela de 2022-10-14 20-24-21](https://user-images.githubusercontent.com/78819692/195957379-433c8b2e-8344-4976-9b62-a108bb0bd847.png)
 
 
+## Etapa 3 :heavy_check_mark:
