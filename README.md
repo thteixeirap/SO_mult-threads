@@ -32,7 +32,7 @@ Agora vamos considerar o conteúdo de T. Leia o conteúdo de T em uma Fila em qu
     make run
 ```
 ## Saídas!
-:exclamation::exclamation: No menu, é necessário executar sequencialmente as opções para a execução correta do código :
+:exclamation::exclamation: No menu, é necessário executar sequencialmente as opções para a execução correta do código :exclamation::exclamation:
 
 
 
