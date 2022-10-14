@@ -115,6 +115,9 @@ void printOutHashT()
 {
     queue<vector<string>> aux = itensT;
     vector<string> v;
+      cout << endl
+         << "--------- HASH DOS ITENS --------- " << endl
+         << endl;
     while (!aux.empty())
     {
         v = aux.front();
