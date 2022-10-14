@@ -49,9 +49,9 @@ Agora vamos considerar o conteúdo de T. Leia o conteúdo de T em uma Fila em qu
 
 * Exemplo de saída da hash de processos[T.csv]
 
-- A seguir esta um exemplo de uma combinação: 
 
 Aqui esta a primeira linha do arquivo T.csv:
+
 ![Captura de tela de 2022-10-14 20-24-43](https://user-images.githubusercontent.com/78819692/195957181-c73ef6e4-d56a-4e85-942d-a8d4f733d3de.png)
 
 Aqui esta como foi feita todas as combinações possíveis da linha, sendo primeiro a combinação de 1 em 1, ate sera de 4 em 4:
