@@ -62,4 +62,8 @@ Aqui esta como foi feita todas as combinações possíveis da linha, sendo prime
 
 Para cada permutação encontrada vocês precisam buscar individualmente os valores dos itens em hash, executando em seguida uma interseção desses valores. Se a interseção for não nula, aplique essa na hash de todas as classes. A classe que apresentar um valor de sobreposição maior após processar todas as permutações será apresentada como classe da tarefa em T.
 
+- Agora, a partir das combinações que temos, iremos fazer a intersecção das linhas dessas combinações e depois a intersecção desse resultado com a hash de classes. Assim, somaremos a quantidade de intersecção que existe em casa classe e depois exibiremos o resultado.
 
+- Exemplo da saída:
+
+![Captura de tela de 2022-10-14 20-35-17](https://user-images.githubusercontent.com/78819692/195958041-059e10f8-c056-474f-844b-e32aeeed8215.png)
