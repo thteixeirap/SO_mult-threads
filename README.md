@@ -36,8 +36,9 @@ Agora vamos considerar o conteúdo de T. Leia o conteúdo de T em uma Fila em qu
 ![Captura de tela de 2022-09-19 22-20-15](https://user-images.githubusercontent.com/78819692/191146735-1ca79056-c720-4d9e-bed0-d7d0ec6440e6.png)
 
 * Menu exibido na iniciação do programa
+* 
+![Captura de tela de 2022-10-14 20-35-26](https://user-images.githubusercontent.com/78819692/195957834-4426c91c-3351-4de5-a1f7-3ef234e114de.png)
 
-![Captura de tela de 2022-08-28 20-53-11](https://user-images.githubusercontent.com/78819692/187100035-d55b569b-581d-40d1-ad7a-5adaaada1184.png) 
 
 * Exemplo de saída da hash dos items, na qual a key é composta pela coluna e o item, e em seguida as posições nas quais a key se repetem.
 
