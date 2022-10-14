@@ -59,3 +59,7 @@ Aqui esta como foi feita todas as combinações possíveis da linha, sendo prime
 
 
 ## Etapa 3 :heavy_check_mark:
+
+Para cada permutação encontrada vocês precisam buscar individualmente os valores dos itens em hash, executando em seguida uma interseção desses valores. Se a interseção for não nula, aplique essa na hash de todas as classes. A classe que apresentar um valor de sobreposição maior após processar todas as permutações será apresentada como classe da tarefa em T.
+
+
