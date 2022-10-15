@@ -46,7 +46,7 @@ Agora vamos considerar o conteúdo de T. Leia o conteúdo de T em uma Fila em qu
 
 ![Captura de tela de 2022-08-28 20-53-26](https://user-images.githubusercontent.com/78819692/187100160-e4566379-65c1-42e6-862c-68743402fe29.png)
 
-* Exemplo de sáida da hash de classes, sendo a key o nome da classe e em seguida as posições das linhas em que repete cada classe.
+* Exemplo de saida da hash de classes, sendo a key o nome da classe e em seguida as posições das linhas em que repete cada classe.
 
 ![Captura de tela de 2022-09-19 22-20-46](https://user-images.githubusercontent.com/78819692/191146768-92de063a-70fa-4c0a-8bae-dc3220a13624.png)
 
