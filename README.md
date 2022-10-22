@@ -83,6 +83,8 @@ Exemplos de alguns casos possíveis ao realizar o procedimento de interseção:
 <!-- ![SO1](https://user-images.githubusercontent.com/78819692/197306935-947ef201-a8c2-4251-b7c5-a66f5ae9552e.png) -->
 <img src="https://user-images.githubusercontent.com/78819692/197306935-947ef201-a8c2-4251-b7c5-a66f5ae9552e.png" width="620">
 
+> É importante resaltar que se em algum processo de interseção o resultado der que não há itens em comum entre os valores dessa chave, cancelo o processo de verificação dessa combinação. 
+
 - Caso 2: Quando é encontrado a combinação em CACHE em algum momento do processo
 
 <!-- ![SO2](https://user-images.githubusercontent.com/78819692/197306969-5ea75149-c8fe-4c78-8c93-0e175ab60bac.png) -->
