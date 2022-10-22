@@ -18,11 +18,13 @@ void printOutHashT();
 void printOutHashD();
 void combinate(vector<string> vector, int perm[], int index, int n, int k);
 void makeCombinate();
-void makeIntersection(string s);
+void makeIntersection(string keyInString);
 void intersectionWithClassHash(vector<int> v);
 void intersection();
 void displayResult();
 void printOutHashCombinate();
+unordered_map<string, vector<int>>::const_iterator cacheSearch(string key);
 vector<int> intersection(vector<int> v1,vector<int> v2);
-
+void returnsWinningClass();
+string tokenizeString(string s);
 #endif
