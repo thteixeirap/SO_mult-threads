@@ -22,6 +22,15 @@ Elaboração das tabelas hash para itens e classes. Dado uma linha do arquivo, c
 
 Agora vamos considerar o conteúdo de T. Leia o conteúdo de T em uma Fila em que cada posição detenha uma linha inteira já tokenizada. O tipo Vector do C++ consegue auxiliar vocês nessa tarefa. Depois de carregar todo o conteúdo de T, processar linha a linha. Considere como processar a ação de comparar os itens de T com a tabela hash de itens, selecionando apenas os itens em comum. Feito isso, realize a permutação dos itens comuns de 1 a N, com N definido estaticamente com define diretamente no código. Armazene todas as permutações de uma entrada em T em um segundo Vector.
 
+
+## Etapa 3 :heavy_check_mark:
+
+Para cada permutação encontrada vocês precisam buscar individualmente os valores dos itens em hash, executando em seguida uma interseção desses valores. Se a interseção for não nula, aplique essa na hash de todas as classes. A classe que apresentar um valor de sobreposição maior após processar todas as permutações será apresentada como classe da tarefa em T.
+
+## Etapa 4 :heavy_check_mark:
+
+Elaborar um cache utilizando uma hash para armazenar o resultado das interseções já realizadas. Adote como chave as permutações e como valor o resultado das interseções. Feito isso, modifique o algoritmo para trabalhar da seguinte forma: Para cada nova permutação, buscar em cache se há resultado já processado. Em caso afirmativo, apenas teste as classes para o resultado. Caso contrário, faça toda a computação envolvida.
+
 ## Execução 
 
 
@@ -42,31 +51,62 @@ Agora vamos considerar o conteúdo de T. Leia o conteúdo de T em uma Fila em qu
 ![Captura de tela de 2022-10-14 20-35-26](https://user-images.githubusercontent.com/78819692/195957834-4426c91c-3351-4de5-a1f7-3ef234e114de.png)
 
 
-* Exemplo de saída da hash dos items, na qual a key é composta pela coluna e o item, e em seguida as posições nas quais a key se repetem.
+* Exemplo de saída da hash dos items e como é feita sua lógica .
 
-![Captura de tela de 2022-08-28 20-53-26](https://user-images.githubusercontent.com/78819692/187100160-e4566379-65c1-42e6-862c-68743402fe29.png)
+<img src="https://user-images.githubusercontent.com/78819692/197308765-4190830a-1c01-4960-b421-36e48b3a5803.png" width="950">
+
 
 * Exemplo de saida da hash de classes, sendo a key o nome da classe e em seguida as posições das linhas em que repete cada classe.
 
-![Captura de tela de 2022-09-19 22-20-46](https://user-images.githubusercontent.com/78819692/191146768-92de063a-70fa-4c0a-8bae-dc3220a13624.png)
-
-* Exemplo de saída da hash de processos[T.csv]
-
-
-Aqui esta a primeira linha do arquivo T.csv:
-
-![Captura de tela de 2022-10-14 20-24-43](https://user-images.githubusercontent.com/78819692/195957181-c73ef6e4-d56a-4e85-942d-a8d4f733d3de.png)
-
-Aqui esta como foi feita todas as combinações possíveis da linha, sendo primeiro a combinação de 4 em 1, até ser de 4 em 4:
-![Captura de tela de 2022-10-14 20-24-21](https://user-images.githubusercontent.com/78819692/195957379-433c8b2e-8344-4976-9b62-a108bb0bd847.png)
+<!-- ![Captura de tela de 2022-10-21 21-46-44](https://user-images.githubusercontent.com/78819692/197308913-93a7243d-dc5a-4894-a426-eb556e5a6aeb.png) -->
+<img src="https://user-images.githubusercontent.com/78819692/197308913-93a7243d-dc5a-4894-a426-eb556e5a6aeb.png" width="950">
 
 
-## Etapa 3 :heavy_check_mark:
 
-Para cada permutação encontrada vocês precisam buscar individualmente os valores dos itens em hash, executando em seguida uma interseção desses valores. Se a interseção for não nula, aplique essa na hash de todas as classes. A classe que apresentar um valor de sobreposição maior após processar todas as permutações será apresentada como classe da tarefa em T.
 
-- Agora, a partir das combinações que temos, iremos fazer a intersecção das linhas dessas combinações e depois a intersecção desse resultado com a hash de classes. Assim, somaremos a quantidade de intersecção que existe em casa classe e depois exibiremos o resultado.
+## Combinações
 
-- Exemplo da saída:
+Aqui está um exemplo de como fica as combinações.
 
-![Captura de tela de 2022-10-14 20-35-17](https://user-images.githubusercontent.com/78819692/195958041-059e10f8-c056-474f-844b-e32aeeed8215.png)
+No exemplo pegamos a primeira linha do arquivo T.csv
+<!-- ![s00](https://user-images.githubusercontent.com/78819692/197306530-ecfaf9a1-2e17-4e76-826b-86a8b8f435bd.png) -->
+<img src="https://user-images.githubusercontent.com/78819692/197306530-ecfaf9a1-2e17-4e76-826b-86a8b8f435bd.png" width="400">
+
+
+
+## Interseções das combinações
+
+- Tendo já feito as combinações possíveis para cada linha do arquivo de T.csv, iremos procurar essas chaves da combinação e, caso encontrado essas chaves na hash de itens, iremos fazer uma interseção entre os itens de cada chave pertencente a essa combinação.
+
+- Quando enviamos a combinação para procurar a chave na hash de itens, primeiro verificamos se essa combinação tem em CACHE
+
+<h1></h1>
+
+Exemplos de alguns casos possíveis ao realizar o procedimento de interseção:
+
+- Caso 1: Quando em nenhum momento é encontrado a combinação em CACHE </h3>
+<!-- ![SO1](https://user-images.githubusercontent.com/78819692/197306935-947ef201-a8c2-4251-b7c5-a66f5ae9552e.png) -->
+<img src="https://user-images.githubusercontent.com/78819692/197306935-947ef201-a8c2-4251-b7c5-a66f5ae9552e.png" width="620">
+
+- Caso 2: Quando é encontrado a combinação em CACHE em algum momento do processo
+
+<!-- ![SO2](https://user-images.githubusercontent.com/78819692/197306969-5ea75149-c8fe-4c78-8c93-0e175ab60bac.png) -->
+<img src="https://user-images.githubusercontent.com/78819692/197306969-5ea75149-c8fe-4c78-8c93-0e175ab60bac.png" width="620">
+
+* Caso 3: Quando uma das chaves da combinação não é encontrada na hash de itens
+
+<!-- ![SO3](https://user-images.githubusercontent.com/78819692/197307016-06dc1fe4-9684-4e1e-948d-2b0d46c1ecc1.png) -->
+<img src="https://user-images.githubusercontent.com/78819692/197307016-06dc1fe4-9684-4e1e-948d-2b0d46c1ecc1.png" width="550">
+
+
+## Interseção com a hash de classes
+
+- Sempre que encontramos uma interseção de uma combinação fazemos uma outra interseção com a hash de classes com o objetivo de saber qual é a classe que mais tem itens em comum com as interseções das combinações.
+
+- O resultado encontrado foi:
+
+![Captura de tela de 2022-10-21 21-48-38](https://user-images.githubusercontent.com/78819692/197309064-ab30f15c-7c1b-4c34-b9ba-a4431ab16aa9.png)
+
+
+
+
