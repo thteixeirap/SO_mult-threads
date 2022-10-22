@@ -29,23 +29,19 @@ void menu()
         case 1:
             readFileD("src/dataset/D.csv");
             cout << endl
-                 << " File D Read" << endl;
+                 << "\tFile D Read" << endl;
             readFileT("src/dataset/T.csv");
             cout << endl
-                 << " File T Read" << endl;
-            printOutHashD();
-            printOutHashT();
-
+                 << "\tFile T Read" << endl;
+            // printOutHashD();
+            // printOutHashT();
             break;
 
         case 2:
 
             makeCombinate();
-            cout << endl
-                 << endl
-                 << "\t\t\t COMBINATE HASH " << endl
-                 << endl;
-            printOutHashCombinate();
+            cout << endl << "\tCombinations Made" << endl;
+            // printOutHashCombinate();
             break;
 
         case 0:
