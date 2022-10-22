@@ -2,9 +2,6 @@
  Sistema multitarefa
 </h1>
 
-
-
-
 ## Sobre 
 
 <p>
@@ -45,18 +42,14 @@ Elaborar um cache utilizando uma hash para armazenar o resultado das interseçõ
 ## Saídas!
 :exclamation::exclamation: No menu, é necessário executar sequencialmente as opções para a execução correta do código :exclamation::exclamation:
 
-
-
-
 * Menu exibido na iniciação do programa
 
 ![Captura de tela de 2022-10-14 20-35-26](https://user-images.githubusercontent.com/78819692/195957834-4426c91c-3351-4de5-a1f7-3ef234e114de.png)
 
 
-* Exemplo de saída da hash dos items e como é feita sua lógica .
+* Exemplo de saída da hash dos itens e como é feita sua lógica .
 
 <img src="https://user-images.githubusercontent.com/78819692/197308765-4190830a-1c01-4960-b421-36e48b3a5803.png" width="950">
-
 
 * Exemplo de saida da hash de classes, sendo a key o nome da classe e em seguida as posições das linhas em que repete cada classe.
 
