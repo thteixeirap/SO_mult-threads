@@ -2,6 +2,8 @@
 
 unordered_map<string, vector<int>> itensD;
 unordered_map<string, vector<int>> classesD;
+unordered_map<string, vector<int>> cache_intersection;
+
 queue<vector<string>> itensT;
 
 // queue<vector<int>> auxIntersection;
@@ -113,11 +115,11 @@ void readFileT(string fileName)
 
 void printOutHashT()
 {
-    queue<vector<string>> aux = itensT;
-    vector<string> v;
-      cout << endl
+    cout << endl
          << "--------- HASH DOS ITENS --------- " << endl
          << endl;
+    queue<vector<string>> aux = itensT;
+    vector<string> v;
     while (!aux.empty())
     {
         v = aux.front();
@@ -164,76 +166,96 @@ void intersection()
     displayResult();
 }
 
-void makeIntersection(string s)
+void makeIntersection(string KeyInString)
 {
-    char ar[30];
-    strcpy(ar, s.c_str());
-    char *token = strtok(ar, "][-");
-    int cont = 0;
+    char keyInChar[30];
+    strcpy(keyInChar, KeyInString.c_str());
+    char *token = strtok(keyInChar, "-");
+    bool firstLoop = true;
     vector<int> v;
-    while (token != NULL)
+    bool block = false;
+
+    string aux = KeyInString;
+
+    unordered_map<string, vector<int>>::const_iterator foundInCache = cacheSearch(KeyInString);
+    if (foundInCache == cache_intersection.end())
     {
-
-        string key = (string)token;
-        unordered_map<string, vector<int>>::const_iterator find = itensD.find(key);
-
-        token = strtok(NULL, "][-");
-
-        if (find == itensD.end())
+        while (token != NULL)
         {
-            // std::cout << "not found";
-        }
-        else
-        {
-            if (cont == 0)
+            string key = (string)token;
+            unordered_map<string, vector<int>>::const_iterator foundHash = itensD.find(key);
+
+            token = strtok(NULL, "-");
+            if (!(foundHash == itensD.end()))
             {
-                v = find->second;
-                cont++;
+                if (firstLoop == true)
+                {
+                    v = foundHash->second;
+                    firstLoop = false;
+                }
+                else
+                    v = intersection(v, foundHash->second);
             }
+
+            /*
+             SE NA HASH DE ITENS NAO TIVER A CHAVE, CANCELO O LOOP
+             PORQUE JÁ NÃO TEM POSSIBILIDADE DE INTERSEÇÃO
+            */
             else
             {
-                v = intersection(v, find->second);
-                cont++;
+                block = true;
+                break;
+            }
+
+            /* TESTO O QUE SOBROU DAS COMBINAÇÔES CASO EXISTIR RESTO */
+            if (token != NULL)
+            {
+                aux = tokenizeString(aux);
+                unordered_map<string, vector<int>>::const_iterator foundInCache2 = cacheSearch(aux);
+                if (!(foundInCache2 == cache_intersection.end()))
+                {
+                    v = intersection(v, foundInCache2->second);
+                    break;
+                }
             }
         }
+
+        if (!(v.empty()) && block == false)
+        {
+            cache_intersection[KeyInString] = v;
+            intersectionWithClassHash(v);
+        }
     }
-    if (!v.empty())
-        intersectionWithClassHash(v);
+
+    /*
+    SE EU JA TIVER A COMBINAÇÃO INTEIRA
+    EM CACHE, NÃO ENTRO NO WHILE
+    */
+    else if (!foundInCache->second.empty())
+        intersectionWithClassHash(foundInCache->second);
+}
+
+unordered_map<string, vector<int>>::const_iterator cacheSearch(string key)
+{
+    return cache_intersection.find(key);
 }
 
 void intersectionWithClassHash(vector<int> v)
 {
-
-    vector<int> versicolorV;
-    vector<int> virginicaV;
-    vector<int> setosaV;
-    int cont = 0;
+    vector<int> vectorIntersection;
 
     for (auto mapIt = begin(classesD); mapIt != end(classesD); ++mapIt)
     {
+        vectorIntersection = intersection(v, mapIt->second);
 
-        switch (cont)
-        {
-        case 0:
-            versicolorV = intersection(v, mapIt->second);
-            versicolor += versicolorV.size();
-            break;
+        if (mapIt->first == "Iris-versicolor")
+            versicolor += vectorIntersection.size();
+        else if (mapIt->first == "Iris-virginica")
+            virginica += vectorIntersection.size();
+        else if (mapIt->first == "Iris-setosa")
+            setosa += vectorIntersection.size();
 
-        case 1:
-            virginicaV = intersection(v, mapIt->second);
-            virginica += virginicaV.size();
-            break;
-
-        case 2:
-            setosaV = intersection(v, mapIt->second);
-            setosa += setosaV.size();
-            break;
-
-        default:
-            break;
-        }
-
-        cont++;
+        vectorIntersection.clear();
     }
 }
 
@@ -245,7 +267,6 @@ void makeCombinate()
     int index = 1;
 
     for (int i = 0; i < 50; i++)
-    // while (!aux.empty())
     {
         v = aux.front();
         aux.pop();
@@ -332,25 +353,36 @@ vector<int> intersection(vector<int> v1, vector<int> v2)
 
 void displayResult()
 {
-    cout << endl
-         << endl;
-    if (versicolor > virginica && versicolor > setosa)
-    {
-        cout << " Classe Vencedora: Iris-Versicolor " << endl;
-    }
-    else if (virginica > setosa && virginica > versicolor)
-    {
-        cout << " Classe Vencedora: Iris-Virginica " << endl;
-    }
-    else if (setosa > virginica && setosa > versicolor)
-    {
-        cout << " Classe Vencedora: Iris-Setosa " << endl;
-    }
+    returnsWinningClass();
     printf("\n\n");
     printf("      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("      @                    Ranking                        @\n");
+    printf("      @                                                   @\n");
+    printf("      @                    RANKING                        @\n");
+    printf("      @                                                   @\n");
+    printf("      @              Iris-Versicolor: %d                 @\n", versicolor);
+    printf("      @              Iris-Virginica: %d                  @\n", virginica);
+    printf("      @              Iris-Setosa: %d                     @\n", setosa);
+    printf("      @                                                   @\n");
     printf("      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n\n");
-    cout << "\t\tIris-Versicolor: " << versicolor << endl;
-    cout << "\t\tIris-Virginica: " << virginica << endl;
-    cout << "\t\tIris-Setosa: " << setosa << endl<<endl<<endl;
+}
+
+void returnsWinningClass()
+{
+
+    if (versicolor > virginica && versicolor > setosa)
+        cout << endl
+             << "\t\tClasse Vencedora: [Iris-Versicolor] ";
+    else if (virginica > setosa && virginica > versicolor)
+        cout << endl
+             << "\t\tClasse Vencedora: [Iris-Virginica] ";
+    else
+        cout << endl
+             << "\t\tClasse Vencedora: [Iris-Setosa] ";
+}
+
+string tokenizeString(string s)
+{
+
+    s.erase(0, 7);
+    return s;
 }
