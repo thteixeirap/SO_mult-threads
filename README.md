@@ -33,7 +33,9 @@ Elaborar um cache utilizando uma hash para armazenar o resultado das interseçõ
 
 ## Execução 
 
-
+```sh
+    make clean
+```
 ```sh
     make
 ```
