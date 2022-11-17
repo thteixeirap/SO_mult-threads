@@ -89,10 +89,10 @@ Exemplos de alguns casos possíveis ao realizar o procedimento de interseção:
 * Caso 3: Quando uma das chaves da combinação não é encontrada na hash de itens
 
 <!-- ![SO3](https://user-images.githubusercontent.com/78819692/197307016-06dc1fe4-9684-4e1e-948d-2b0d46c1ecc1.png) -->
-<img src="https://user-images.githubusercontent.com/78819692/202565204-15799603-c101-4e26-867d-b59c70b07c64.png" width="550">
+<img src="https://user-images.githubusercontent.com/78819692/202565204-15799603-c101-4e26-867d-b59c70b07c64.png" width="620">
 
 * Caso 4: Quando em algum momento é verificado que a combinação ou parte dela é inválida (não possui interseções entre as chaves)
-<img src="https://user-images.githubusercontent.com/78819692/202565736-4b05a82d-40f3-4f99-91ad-bd0175d3e091.png" width="550">
+<img src="https://user-images.githubusercontent.com/78819692/202565736-4b05a82d-40f3-4f99-91ad-bd0175d3e091.png" width="620">
 
 
 ## Interseção com a hash de classes
