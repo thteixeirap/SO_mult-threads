@@ -120,11 +120,11 @@ Media 1     | Media 2
 ----------- | ----------
 0.01006050  | 0.01318636
 
-> Conclui se que no método de verificação do restante das combinações temos cerca de 31% no ganho de tempo na execução das interseções.
+> Conclui se que no método de verificação do restante das combinações temos cerca de 31% no ganho de tempo na execução das interseções em relação a execução na qual veriicamos apenas no ínicio em CACHE.
 
 ## Interseção com a hash de classes
 
-- Sempre que encontramos uma interseção de uma combinação fazemos uma outra interseção com a hash de classes com o objetivo de saber qual é a classe que mais tem itens em comum com as interseções das combinações.
+- Sempre que encontramos uma interseção de uma combinação fazemos uma outra interseção com a hash de classes com o objetivo de saber qual é a classe que mais tem itens em comum com as interseções das combinações em relação .
 
 - O resultado encontrado foi:
 
