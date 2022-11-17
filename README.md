@@ -51,9 +51,8 @@ Elaborar um cache utilizando uma hash para armazenar o resultado das interseçõ
 <img src="https://user-images.githubusercontent.com/78819692/197308913-93a7243d-dc5a-4894-a426-eb556e5a6aeb.png" width="950">
 
 * Exemplo de como é montado a CACHE
-
-<!-- ![Diagrama sem nome-Página-11 drawio](https://user-images.githubusercontent.com/78819692/202572335-2545f627-1633-41ed-8e86-e233d343cc54.png) -->
-<img src="https://user-images.githubusercontent.com/78819692/202572335-2545f627-1633-41ed-8e86-e233d343cc54.png" width="950">
+<!-- ![Diagrama sem nome-Página-11 drawio (1)](https://user-images.githubusercontent.com/78819692/202572775-82eefcbb-8e85-45f9-9e89-f7ce1adba354.png) -->
+<img src="https://user-images.githubusercontent.com/78819692/202572775-82eefcbb-8e85-45f9-9e89-f7ce1adba354.png" width="950">
 
 
 ## Combinações
