@@ -39,7 +39,7 @@ Elaborar um cache utilizando uma hash para armazenar o resultado das interseçõ
 ```sh
     make run
 ```
-## Hash's Principais!
+## Estruturas principais
 
 * Exemplo de saída da hash dos itens e como é feita sua lógica .
 
