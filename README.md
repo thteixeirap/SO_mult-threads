@@ -99,7 +99,7 @@ Exemplos de alguns casos possíveis ao realizar o procedimento de interseção:
 
 <h1></h1>
 
-* Comparação:
+ Comparação:
 
 - No teste 1 está o temmpo das interseções utilizando do método de verificação em CACHE explicado anteriormente
 - No teste 2 foi feito os teste do tempo das interseções utilizando apenas a verificação em CACHE no início do processo (a combinação inteira)
