@@ -79,7 +79,7 @@ Exemplos de alguns casos possíveis ao realizar o procedimento de interseção:
 <!-- ![Diagrama sem nome-Página-4 drawio (3)](https://user-images.githubusercontent.com/78819692/202564546-046bf022-97ff-49e7-8922-61d57dfa781f.png) -->
 <img src="https://user-images.githubusercontent.com/78819692/202564546-046bf022-97ff-49e7-8922-61d57dfa781f.png" width="620">
 
-> É importante resaltar que se em algum processo de interseção o resultado der que não há itens em comum entre os valores dessa chave, cancelo o processo de verificação dessa combinação. 
+> É importante resaltar que as verificações do restante da combinação é feita apenas quando restam duas chaves ou mais, pois é considerado que quando resta apenas uma chave é mais vantajoso verificar na hash de itens do que em cache.
 
 - Caso 2: Quando é encontrado a combinação em CACHE em algum momento do processo
 
@@ -89,7 +89,10 @@ Exemplos de alguns casos possíveis ao realizar o procedimento de interseção:
 * Caso 3: Quando uma das chaves da combinação não é encontrada na hash de itens
 
 <!-- ![SO3](https://user-images.githubusercontent.com/78819692/197307016-06dc1fe4-9684-4e1e-948d-2b0d46c1ecc1.png) -->
-<img src="https://user-images.githubusercontent.com/78819692/197307016-06dc1fe4-9684-4e1e-948d-2b0d46c1ecc1.png" width="550">
+<img src="https://user-images.githubusercontent.com/78819692/202565204-15799603-c101-4e26-867d-b59c70b07c64.png" width="550">
+
+* Caso 4: Quando em algum momento é verificado que a combinação ou parte dela é inválida (não possui interseções entre as chaves)
+<img src="https://user-images.githubusercontent.com/78819692/202565736-4b05a82d-40f3-4f99-91ad-bd0175d3e091.png" width="550">
 
 
 ## Interseção com a hash de classes
