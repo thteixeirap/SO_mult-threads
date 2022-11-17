@@ -98,14 +98,23 @@ Exemplos de alguns casos possíveis ao realizar o procedimento de interseção:
 <img src="https://user-images.githubusercontent.com/78819692/202565736-4b05a82d-40f3-4f99-91ad-bd0175d3e091.png" width="620">
 
 * Comparação:
+* 
+- No teste 1 está o temmpo das interseções utilizando do método de verificação em CACHE explicado anteriormente
+- No teste 2 foi feito os teste do tempo das interseções utilizando apenas a verificação em CACHE no início do processo (a combinação inteira)
 
-Alimentos | Preço
---------- | ------
-Arroz     | R$ 10
-Feijão    | R$ 8
-Batata    | R$ 7
-Macarrão  | R$ 8
-
+Teste 1     | Teste 2
+----------  | ---------
+0.00502197  | 0.0138698
+0.00712295  | 0.00414172
+0.021678    | 0.0127659
+0.0043139   | 0.0179619
+0.0180693   | 0.0039672
+0.00671301  | 0.0176281
+0.00535444  | 0.0107708
+0.0145622   | 0.0126174
+0.00583671  | 0.0167257
+0.00510638  | 0.0171573
+0.0098867   | 0.0174442
 
 ## Interseção com a hash de classes
 
