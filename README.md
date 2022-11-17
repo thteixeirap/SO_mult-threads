@@ -50,7 +50,10 @@ Elaborar um cache utilizando uma hash para armazenar o resultado das interseçõ
 <!-- ![Captura de tela de 2022-10-21 21-46-44](https://user-images.githubusercontent.com/78819692/197308913-93a7243d-dc5a-4894-a426-eb556e5a6aeb.png) -->
 <img src="https://user-images.githubusercontent.com/78819692/197308913-93a7243d-dc5a-4894-a426-eb556e5a6aeb.png" width="950">
 
+* Exemplo de como é montado a CACHE
 
+<!-- ![Diagrama sem nome-Página-11 drawio](https://user-images.githubusercontent.com/78819692/202572335-2545f627-1633-41ed-8e86-e233d343cc54.png) -->
+<img src="https://user-images.githubusercontent.com/78819692/202572335-2545f627-1633-41ed-8e86-e233d343cc54.png" width="950">
 
 
 ## Combinações
