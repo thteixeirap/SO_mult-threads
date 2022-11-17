@@ -66,11 +66,11 @@ No exemplo pegamos a primeira linha do arquivo T.csv
 
 
 
-## Interseções das combinações
+## Interseções das combinações e classes
 
 - Tendo já feito as combinações possíveis para cada linha do arquivo de T.csv, iremos procurar essas chaves da combinação e, caso encontrado essas chaves na hash de itens, iremos fazer uma interseção entre os itens de cada chave pertencente a essa combinação.
 
-- Quando enviamos a combinação para procurar a chave na hash de itens, primeiro verificamos se essa combinação tem em CACHE
+- Quando enviamos a combinação para procurar a chave na hash de itens, verificamos se essa combinação tem em CACHE.
 
 <h1></h1>
 
