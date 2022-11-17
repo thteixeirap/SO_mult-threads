@@ -39,13 +39,7 @@ Elaborar um cache utilizando uma hash para armazenar o resultado das interseçõ
 ```sh
     make run
 ```
-## Saídas!
-:exclamation::exclamation: No menu, é necessário executar sequencialmente as opções para a execução correta do código :exclamation::exclamation:
-
-* Menu exibido na iniciação do programa
-
-![Captura de tela de 2022-10-14 20-35-26](https://user-images.githubusercontent.com/78819692/195957834-4426c91c-3351-4de5-a1f7-3ef234e114de.png)
-
+## Hash's Principais!
 
 * Exemplo de saída da hash dos itens e como é feita sua lógica .
 
