@@ -97,6 +97,15 @@ Exemplos de alguns casos possíveis ao realizar o procedimento de interseção:
 * Caso 4: Quando em algum momento é verificado que a combinação ou parte dela é inválida (não possui interseções entre as chaves)
 <img src="https://user-images.githubusercontent.com/78819692/202565736-4b05a82d-40f3-4f99-91ad-bd0175d3e091.png" width="620">
 
+* Comparação:
+
+Alimentos | Preço
+--------- | ------
+Arroz     | R$ 10
+Feijão    | R$ 8
+Batata    | R$ 7
+Macarrão  | R$ 8
+
 
 ## Interseção com a hash de classes
 
