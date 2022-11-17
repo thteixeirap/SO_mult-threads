@@ -103,7 +103,7 @@ Exemplos de alguns casos possíveis ao realizar o procedimento de interseção:
 - No teste 2 foi feito os teste do tempo das interseções utilizando apenas a verificação em CACHE no início do processo (a combinação inteira)
 
 Teste 1     | Teste 2
-----------  | ---------
+----------- | ----------
 0.00502197  | 0.0138698
 0.00712295  | 0.00414172
 0.021678    | 0.0127659
