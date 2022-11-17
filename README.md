@@ -98,7 +98,7 @@ Exemplos de alguns casos possíveis ao realizar o procedimento de interseção:
 <img src="https://user-images.githubusercontent.com/78819692/202565736-4b05a82d-40f3-4f99-91ad-bd0175d3e091.png" width="620">
 
 * Comparação:
-* 
+
 - No teste 1 está o temmpo das interseções utilizando do método de verificação em CACHE explicado anteriormente
 - No teste 2 foi feito os teste do tempo das interseções utilizando apenas a verificação em CACHE no início do processo (a combinação inteira)
 
@@ -115,6 +115,10 @@ Teste 1     | Teste 2
 0.00583671  | 0.0167257
 0.00510638  | 0.0171573
 0.0098867   | 0.0174442
+
+Media 1     | Media 2
+----------- | ----------
+0.01006050  | 0.01318636
 
 ## Interseção com a hash de classes
 
