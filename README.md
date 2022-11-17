@@ -73,8 +73,10 @@ No exemplo pegamos a primeira linha do arquivo T.csv
 
 Exemplos de alguns casos possíveis ao realizar o procedimento de interseção:
 
+
+
 - Caso 1: Quando em nenhum momento é encontrado a combinação em CACHE </h3>
-<!-- ![SO1](https://user-images.githubusercontent.com/78819692/197306935-947ef201-a8c2-4251-b7c5-a66f5ae9552e.png) -->
+<!-- ![Diagrama sem nome-Página-4 drawio (3)](https://user-images.githubusercontent.com/78819692/202564546-046bf022-97ff-49e7-8922-61d57dfa781f.png) -->
 <img src="https://user-images.githubusercontent.com/78819692/197306935-947ef201-a8c2-4251-b7c5-a66f5ae9552e.png" width="620">
 
 > É importante resaltar que se em algum processo de interseção o resultado der que não há itens em comum entre os valores dessa chave, cancelo o processo de verificação dessa combinação. 
