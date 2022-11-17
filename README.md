@@ -53,7 +53,7 @@ Elaborar um cache utilizando uma hash para armazenar o resultado das interseçõ
 * Exemplo de como é montado a CACHE
 <!-- ![Diagrama sem nome-Página-11 drawio (1)](https://user-images.githubusercontent.com/78819692/202572775-82eefcbb-8e85-45f9-9e89-f7ce1adba354.png) -->
 <img src="https://user-images.githubusercontent.com/78819692/202572775-82eefcbb-8e85-45f9-9e89-f7ce1adba354.png" width="950">
-
+> Caso na etapa um é verificado que não é possél ter interseção entre as chaves da combinação, é adicionado em CACHE como chave a combinação e o valor que representa que essa combinação é inválida {-1}
 
 ## Combinações
 
