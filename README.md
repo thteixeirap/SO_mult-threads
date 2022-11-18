@@ -22,10 +22,9 @@ Para saber mais sobre as etapas do trabalho: [Wiki](https://github.com/thteixeir
 * [Interseções das combinações e classes](#Interseções-das-combinações-e-classes)
 
 * [Política](#Política)
-* 
+
 * [Threads](#Threads)
-
-
+* [Interseção com a hash de classes](#Interseção-com-a-hash-de-classes)
 
 
 
