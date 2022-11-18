@@ -172,7 +172,7 @@ Media FIFO     | Media SJF
 ----------- | ----------
 0,0120589  | 0.00826750
 
-> Portanto, conclui se que temos uma diminuição em 0,003791 segundos da FIFO para a SJF, que é cerca de 31,44% de ganho de tempo na execução
+> Portanto, conclui se que temos uma diminuição em 0,003791 segundos da FIFO para a SJF, que é cerca de 31,44% de ganho de tempo na execução das interseções
 
 ## Interseção com a hash de classes
 
