@@ -17,7 +17,6 @@
 * [Threads](#Threads)
 * [Interseção com a hash de classes](#Interseção-com-a-hash-de-classes)
 
-<h1></h1>
 
 
 ## Sobre 
