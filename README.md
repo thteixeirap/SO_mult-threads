@@ -140,7 +140,7 @@ Ex:
 <!-- <img src="https://user-images.githubusercontent.com/78819692/202767118-bbaa14c3-d30d-43cf-8cd0-d7fd624b93ae.png" width="950"> -->
 | <img src="https://user-images.githubusercontent.com/78819692/202767118-bbaa14c3-d30d-43cf-8cd0-d7fd624b93ae.png" width="950">
 |:--:| 
-| Imagem representa a sequência do envio das combinações para processo |
+| Imagem exemplifica a sequência do envio das combinações para processo. Começamos na primeira fila, enviando as combinações de 1, depois de 2, 3 e 4, Após isso fazemos o mesmo procedimento pra as linhas abaixo|
 
 ## Interseção com a hash de classes
 
