@@ -150,6 +150,8 @@ Dentro do código, estamos considerando que o processo é:
 
 * Comparação
 
+Valores referentes a execução das interseções
+
 FIFO        | SJF
 ----------- | ----------
 0.0155707   | 0.00574528
