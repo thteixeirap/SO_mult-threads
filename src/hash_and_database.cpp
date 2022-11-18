@@ -148,23 +148,23 @@ void makeIntersection(string KeyInString)
                 break;
             }
             /* TESTO O QUE SOBROU DAS COMBINAÇÔES CASO EXISTIR RESTO DE 2 OU MAIS COMBINAÇÕES*/
-            // char *auxToken = token;
-            // auxToken = strtok(NULL, "-");
-            // if (auxToken != NULL)
-            // {
-            //     aux = tokenizeString(aux);
-            //     unordered_map<string, vector<int>>::const_iterator foundInCache2 = cacheSearch(aux);
-            //     if (!(foundInCache2 == u.cache_intersection.end()))
-            //     {
-            //         v = intersection(v, foundInCache2->second);
-            //         break;
-            //     }
-            //     else if (foundInCache2->second == c.nulo)
-            //     {
-            //         block = true;
-            //         break;
-            //     }
-            // }
+            char *auxToken = token;
+            auxToken = strtok(NULL, "-");
+            if (auxToken != NULL)
+            {
+                aux = tokenizeString(aux);
+                unordered_map<string, vector<int>>::const_iterator foundInCache2 = cacheSearch(aux);
+                if (!(foundInCache2 == u.cache_intersection.end()))
+                {
+                    v = intersection(v, foundInCache2->second);
+                    break;
+                }
+                else if (foundInCache2->second == c.nulo)
+                {
+                    block = true;
+                    break;
+                }
+            }
         }
 
         if (!(v.empty()) && block == false)
