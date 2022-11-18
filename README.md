@@ -104,6 +104,8 @@ Exemplos de alguns casos possíveis ao realizar o procedimento de interseção:
 - No teste 1 está o temmpo das interseções utilizando do método de verificação em CACHE explicado anteriormente
 - No teste 2 foi feito os teste do tempo das interseções utilizando apenas a verificação em CACHE no início do processo (a combinação inteira)
 
+Valores em segundo do tempo de interseção
+
 Teste 1     | Teste 2
 ----------- | ----------
 0.00502197  | 0.0138698
@@ -150,7 +152,7 @@ Dentro do código, estamos considerando que o processo é:
 
 * Comparação
 
-Valores referentes a execução das interseções
+Valores referentes a execução das interseções ( em segundos )
 
 FIFO        | SJF
 ----------- | ----------
@@ -168,8 +170,9 @@ FIFO        | SJF
 
 Media FIFO     | Media SJF
 ----------- | ----------
-0,0120589  | 0.008267502
+0,0120589  | 0.00826750
 
+> Portanto, conclui se que temos uma diminuição em 0,003791 segundos da FIFO para a SJF, que é cerca de 31,44% de ganho de tempo na execução
 
 ## Interseção com a hash de classes
 
