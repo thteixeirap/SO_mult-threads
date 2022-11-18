@@ -1,21 +1,9 @@
 #include "hash_and_database.hpp"
 
-unordered_map<string, vector<int>> itensD;
-unordered_map<string, vector<int>> classesD;
-unordered_map<string, vector<int>> cache_intersection;
-
+classIntersection iClass;
+classCombination c;
+unordered_global u;
 queue<vector<string>> itensT;
-
-// queue<vector<int>> auxIntersection;
-int versicolor = 0;
-int virginica = 0;
-int setosa = 0;
-
-queue<vector<string>> combinates;
-string auxCombinates;
-vector<string> allCombinatesLine;
-
-using namespace std;
 
 void readFileD(string fileName)
 {
@@ -43,16 +31,15 @@ void readFileD(string fileName)
         token = strtok(charLineOutput, ",");
         while (token != NULL)
         {
-
             if (coluna == 5)
             {
                 key = string(token);
-                classesD[key].push_back(linha);
+                u.classesD[key].push_back(linha);
                 token = strtok(NULL, ",");
                 break;
             }
             key = to_string(coluna) + ", " + string(token);
-            itensD[key].push_back(linha);
+            u.itensD[key].push_back(linha);
             token = strtok(NULL, ",");
             coluna++;
         }
@@ -85,7 +72,6 @@ void readFileT(string fileName)
     {
         if (coluna == 5)
             coluna = 1;
-
         getline(file, stringLineOutput);
         charLineOutput = const_cast<char *>(stringLineOutput.c_str());
         token = strtok(charLineOutput, ",");
@@ -102,57 +88,17 @@ void readFileT(string fileName)
             token = strtok(NULL, ",");
             coluna++;
         }
-
         itensT.push(aux);
         aux.clear();
         linha++;
     }
-
     file.close();
-
     return;
-}
-
-void printOutHashT()
-{
-    cout << endl
-         << "--------- HASH DOS ITENS --------- " << endl
-         << endl;
-    queue<vector<string>> aux = itensT;
-    vector<string> v;
-    while (!aux.empty())
-    {
-        v = aux.front();
-        aux.pop();
-        for (auto &element : v)
-            cout << "[" << element << "]"
-                 << " ";
-        cout << endl;
-        v.clear();
-    }
-    cout << '\n';
-}
-
-void printOutHashCombinate()
-{
-    queue<vector<string>> aux = combinates;
-    vector<string> v;
-    while (!aux.empty())
-    {
-        v = aux.front();
-        aux.pop();
-        for (auto &element : v)
-            cout << "[" << element << "]"
-                 << " ";
-
-        v.clear();
-        cout << endl;
-    }
 }
 
 void intersection()
 {
-    queue<vector<string>> aux = combinates;
+    queue<vector<string>> aux = c.combinates;
     vector<string> v;
     while (!aux.empty())
     {
@@ -162,8 +108,6 @@ void intersection()
             makeIntersection(element);
         v.clear();
     }
-
-    displayResult();
 }
 
 void makeIntersection(string KeyInString)
@@ -174,19 +118,17 @@ void makeIntersection(string KeyInString)
     bool firstLoop = true;
     vector<int> v;
     bool block = false;
-
     string aux = KeyInString;
 
     unordered_map<string, vector<int>>::const_iterator foundInCache = cacheSearch(KeyInString);
-    if (foundInCache == cache_intersection.end())
+    if (foundInCache == u.cache_intersection.end())
     {
         while (token != NULL)
         {
             string key = (string)token;
-            unordered_map<string, vector<int>>::const_iterator foundHash = itensD.find(key);
-
+            unordered_map<string, vector<int>>::const_iterator foundHash = u.itensD.find(key);
             token = strtok(NULL, "-");
-            if (!(foundHash == itensD.end()))
+            if (!(foundHash == u.itensD.end()))
             {
                 if (firstLoop == true)
                 {
@@ -196,7 +138,6 @@ void makeIntersection(string KeyInString)
                 else
                     v = intersection(v, foundHash->second);
             }
-
             /*
              SE NA HASH DE ITENS NAO TIVER A CHAVE, CANCELO O LOOP
              PORQUE JÁ NÃO TEM POSSIBILIDADE DE INTERSEÇÃO
@@ -206,24 +147,34 @@ void makeIntersection(string KeyInString)
                 block = true;
                 break;
             }
-
-            /* TESTO O QUE SOBROU DAS COMBINAÇÔES CASO EXISTIR RESTO */
-            if (token != NULL)
-            {
-                aux = tokenizeString(aux);
-                unordered_map<string, vector<int>>::const_iterator foundInCache2 = cacheSearch(aux);
-                if (!(foundInCache2 == cache_intersection.end()))
-                {
-                    v = intersection(v, foundInCache2->second);
-                    break;
-                }
-            }
+            /* TESTO O QUE SOBROU DAS COMBINAÇÔES CASO EXISTIR RESTO DE 2 OU MAIS COMBINAÇÕES*/
+            // char *auxToken = token;
+            // auxToken = strtok(NULL, "-");
+            // if (auxToken != NULL)
+            // {
+            //     aux = tokenizeString(aux);
+            //     unordered_map<string, vector<int>>::const_iterator foundInCache2 = cacheSearch(aux);
+            //     if (!(foundInCache2 == u.cache_intersection.end()))
+            //     {
+            //         v = intersection(v, foundInCache2->second);
+            //         break;
+            //     }
+            //     else if (foundInCache2->second == c.nulo)
+            //     {
+            //         block = true;
+            //         break;
+            //     }
+            // }
         }
 
         if (!(v.empty()) && block == false)
         {
-            cache_intersection[KeyInString] = v;
-            intersectionWithClassHash(v);
+            u.cache_intersection[KeyInString] = v;
+            intersectionWithClassHash(KeyInString, v);
+        }
+        else
+        {
+            u.cache_intersection[KeyInString] = c.nulo;
         }
     }
 
@@ -231,33 +182,102 @@ void makeIntersection(string KeyInString)
     SE EU JA TIVER A COMBINAÇÃO INTEIRA
     EM CACHE, NÃO ENTRO NO WHILE
     */
-    else if (!foundInCache->second.empty())
-        intersectionWithClassHash(foundInCache->second);
+    else if (!(foundInCache->second.empty()) && foundInCache->second != c.nulo)
+    {
+        // intersectionWithClassHash(KeyInString, foundInCache->second);
+        iClass.versicolor += u.intersectionWithClasse[KeyInString][0];
+        iClass.virginica += u.intersectionWithClasse[KeyInString][1];
+        iClass.setosa += u.intersectionWithClasse[KeyInString][2];
+    }
 }
 
 unordered_map<string, vector<int>>::const_iterator cacheSearch(string key)
 {
-    return cache_intersection.find(key);
+    return u.cache_intersection.find(key);
 }
 
-void intersectionWithClassHash(vector<int> v)
+void intersectionWithClassHash(string key, vector<int> v)
 {
     vector<int> vectorIntersection;
+    int intersection_versi = 0, intersection_virg = 0, intersection_set = 0;
 
-    for (auto mapIt = begin(classesD); mapIt != end(classesD); ++mapIt)
+    for (auto mapIt = begin(u.classesD); mapIt != end(u.classesD); ++mapIt)
     {
         vectorIntersection = intersection(v, mapIt->second);
-
         if (mapIt->first == "Iris-versicolor")
-            versicolor += vectorIntersection.size();
+        {
+            iClass.versicolor += vectorIntersection.size();
+            intersection_versi = vectorIntersection.size();
+        }
         else if (mapIt->first == "Iris-virginica")
-            virginica += vectorIntersection.size();
+        {
+            iClass.virginica += vectorIntersection.size();
+            intersection_virg = vectorIntersection.size();
+        }
         else if (mapIt->first == "Iris-setosa")
-            setosa += vectorIntersection.size();
-
+        {
+            iClass.setosa += vectorIntersection.size();
+            intersection_set = vectorIntersection.size();
+        }
         vectorIntersection.clear();
     }
+    u.intersectionWithClasse[key] = {intersection_versi, intersection_virg, intersection_set};
 }
+
+void *produtor(void *arg)
+{
+    estrutura_global *vglobal = (estrutura_global *)arg;
+    queue<vector<string>> aux = itensT;
+    vector<string> v;
+    int perm[4] = {0};
+    int index = 1;
+
+    for (index = 1; index < 5; index++)
+    {
+        aux = itensT;
+        for (int i = 0; i < 50; i++)
+        {
+            v = aux.front();
+            aux.pop();
+            combinate(v, perm, 0, 4, index);
+            for (auto &element : c.allCombinatesLine)
+            {
+                sem_wait(&vglobal->buffer_full);
+                pthread_mutex_lock(&vglobal->buffer_mutex);
+                vglobal->buffer2[vglobal->currentidx++] = element;
+                pthread_mutex_unlock(&vglobal->buffer_mutex);
+                sem_post(&vglobal->buffer_empty);
+                // cout << "Produz: " << element << endl;
+            }
+            v.clear();
+            c.allCombinatesLine.clear();
+            // sleep((int)(rand() % 1));
+        }
+        c.combinates.push(c.allCombinatesLine);
+    }
+    vglobal->finishedProd = true;
+    pthread_exit(arg);
+}
+
+void *consumidor(void *arg)
+{
+    estrutura_global *vglobal = (estrutura_global *)arg;
+    while (!(vglobal->finishedProd == true && vglobal->currentidx == 0))
+    {
+        sem_wait(&vglobal->buffer_empty);
+        pthread_mutex_lock(&vglobal->buffer_mutex);
+        string n = vglobal->buffer2[--vglobal->currentidx];
+        makeIntersection(n);
+        pthread_mutex_unlock(&vglobal->buffer_mutex);
+        sem_post(&vglobal->buffer_full);
+        // sleep((int)(rand() % 4));
+    }
+
+    displayResult();
+    pthread_exit(arg);
+}
+
+/* Combinação em que usa a política SJF  */
 
 void makeCombinate()
 {
@@ -265,34 +285,58 @@ void makeCombinate()
     vector<string> v;
     int perm[4] = {0};
     int index = 1;
-
-    for (int i = 0; i < 50; i++)
+    for (index = 1; index < 5; index++)
     {
-        v = aux.front();
-        aux.pop();
-        for (index = 1; index <= 4; index++)
+        aux = itensT;
+        for (int i = 0; i < 50; i++)
+        {
+            v = aux.front();
+            aux.pop();
             combinate(v, perm, 0, 4, index);
-        v.clear();
-        combinates.push(allCombinatesLine);
-        allCombinatesLine.clear();
+            v.clear();
+        }
+        c.combinates.push(c.allCombinatesLine);
+        c.allCombinatesLine.clear();
     }
 }
+
+
+/* Combinação em que usa a política FIFO  */
+
+
+// void makeCombinate()
+// {
+//     queue<vector<string>> aux = itensT;
+//     vector<string> v;
+//     int perm[4] = {0};
+//     int index = 1;
+
+//     for (int i = 0; i < 50; i++)
+//     {
+//         v = aux.front();
+//         aux.pop();
+//         for (index = 1; index <= 4; index++)
+//             combinate(v, perm, 0, 4, index);
+//         v.clear();
+//         c.combinates.push(c.allCombinatesLine);
+//         c.allCombinatesLine.clear();
+//     }
+// }
 
 void combinate(vector<string> vector, int perm[], int index, int n, int k)
 {
     static int count = 0;
     if (count == k)
     {
-        auxCombinates.assign("");
-
+        c.auxCombinates.assign("");
         for (int i = 0; i < n; i++)
             if (perm[i])
-                auxCombinates.append(vector.at(i)).append("-");
+                c.auxCombinates.append(vector.at(i)).append("-");
 
-        if (!auxCombinates.empty())
+        if (!c.auxCombinates.empty())
         {
-            auxCombinates.erase(auxCombinates.end() - 1);
-            allCombinatesLine.push_back(auxCombinates);
+            c.auxCombinates.erase(c.auxCombinates.end() - 1);
+            c.allCombinatesLine.push_back(c.auxCombinates);
         }
     }
     else if ((n - index) >= (k - count))
@@ -300,10 +344,70 @@ void combinate(vector<string> vector, int perm[], int index, int n, int k)
         perm[index] = 1;
         count++;
         combinate(vector, perm, index + 1, n, k);
-
         perm[index] = 0;
         count--;
         combinate(vector, perm, index + 1, n, k);
+    }
+}
+
+vector<int> intersection(vector<int> v1, vector<int> v2)
+{
+    vector<int> v3;
+    sort(v1.begin(), v1.end());
+    sort(v2.begin(), v2.end());
+    set_intersection(v1.begin(), v1.end(), v2.begin(), v2.end(), back_inserter(v3));
+
+    return v3;
+}
+
+string tokenizeString(string s)
+{
+    s.erase(0, 7);
+    return s;
+}
+
+void displayResult()
+{
+    returnsWinningClass();
+    printf("\n\n");
+    printf("      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("      @                                                   @\n");
+    printf("      @                    RANKING                        @\n");
+    printf("      @                                                   @\n");
+    printf("      @              Iris-Versicolor: %d                 @\n", iClass.versicolor);
+    printf("      @              Iris-Virginica: %d                  @\n", iClass.virginica);
+    printf("      @              Iris-Setosa: %d                     @\n", iClass.setosa);
+    printf("      @                                                   @\n");
+    printf("      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n\n");
+}
+
+void returnsWinningClass()
+{
+    if (iClass.versicolor > iClass.virginica && iClass.versicolor > iClass.setosa)
+        cout << endl
+             << "\t\tClasse Vencedora: [Iris-Versicolor] ";
+    else if (iClass.virginica > iClass.setosa && iClass.virginica > iClass.versicolor)
+        cout << endl
+             << "\t\tClasse Vencedora: [Iris-Virginica] ";
+    else
+        cout << endl
+             << "\t\tClasse Vencedora: [Iris-Setosa] ";
+}
+
+void printOutHashCombinate()
+{
+    queue<vector<string>> aux = c.combinates;
+    vector<string> v;
+    while (!aux.empty())
+    {
+        v = aux.front();
+        aux.pop();
+        for (auto &element : v)
+            cout << "[" << element << "]"
+                 << " ";
+
+        v.clear();
+        cout << endl;
     }
 }
 
@@ -313,7 +417,7 @@ void printOutHashD()
          << "--------- HASH DOS ITENS --------- " << endl
          << endl;
 
-    for (auto mapIt = begin(itensD); mapIt != end(itensD); ++mapIt)
+    for (auto mapIt = begin(u.itensD); mapIt != end(u.itensD); ++mapIt)
     {
         cout << "  \t[" + mapIt->first + "]"
              << " : ";
@@ -328,7 +432,7 @@ void printOutHashD()
          << "--------- HASH DAS CLASSES ---------  " << endl
          << endl;
 
-    for (auto mapIt = begin(classesD); mapIt != end(classesD); ++mapIt)
+    for (auto mapIt = begin(u.classesD); mapIt != end(u.classesD); ++mapIt)
     {
         cout << "[" + mapIt->first + "]"
              << " : ";
@@ -338,51 +442,4 @@ void printOutHashD()
 
         cout << endl;
     }
-}
-
-vector<int> intersection(vector<int> v1, vector<int> v2)
-{
-    vector<int> v3;
-
-    sort(v1.begin(), v1.end());
-    sort(v2.begin(), v2.end());
-    set_intersection(v1.begin(), v1.end(), v2.begin(), v2.end(), back_inserter(v3));
-
-    return v3;
-}
-
-void displayResult()
-{
-    returnsWinningClass();
-    printf("\n\n");
-    printf("      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("      @                                                   @\n");
-    printf("      @                    RANKING                        @\n");
-    printf("      @                                                   @\n");
-    printf("      @              Iris-Versicolor: %d                 @\n", versicolor);
-    printf("      @              Iris-Virginica: %d                  @\n", virginica);
-    printf("      @              Iris-Setosa: %d                     @\n", setosa);
-    printf("      @                                                   @\n");
-    printf("      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n\n");
-}
-
-void returnsWinningClass()
-{
-
-    if (versicolor > virginica && versicolor > setosa)
-        cout << endl
-             << "\t\tClasse Vencedora: [Iris-Versicolor] ";
-    else if (virginica > setosa && virginica > versicolor)
-        cout << endl
-             << "\t\tClasse Vencedora: [Iris-Virginica] ";
-    else
-        cout << endl
-             << "\t\tClasse Vencedora: [Iris-Setosa] ";
-}
-
-string tokenizeString(string s)
-{
-
-    s.erase(0, 7);
-    return s;
 }
