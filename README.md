@@ -10,8 +10,24 @@ Neste trabalho vamos construir um sistema de classificação cujas característi
 Já a base T representará os processos a serem executados, cada um produzindo uma série de computações pesadas e necessárias, as quais vamos coordenar utilizando um sistema de escalonamento em dois níveis: mecanismo e política. Além disso, abordaremos o conceito de memória tratando de chavear os processos entre memória primária e processador, 
 claro, tudo de forma simulada para que possamos extrair resultados mensuráveis para avaliação.
 
-Para saber mais sobre as etapas do trabalho -> [Wiki](https://github.com/thteixeirap/sistemaoperacional/wiki)
+Para saber mais sobre as etapas do trabalho: [Wiki](https://github.com/thteixeirap/sistemaoperacional/wiki)
 </p>
+
+* [Execução](#Execução)
+
+* [Estruturas principais](#Estruturas-principais)
+
+* [Combinações](#Combinações)
+
+* [Interseções das combinações e classes](#Interseções-das-combinações-e-classes)
+
+* [Política](#Política)
+* 
+* [Threads](#Threads)
+
+
+
+
 
 ## Execução 
 
@@ -48,7 +64,6 @@ Aqui está um exemplo de como fica as combinações.
 No exemplo pegamos a primeira linha do arquivo T.csv
 <!-- ![s00](https://user-images.githubusercontent.com/78819692/197306530-ecfaf9a1-2e17-4e76-826b-86a8b8f435bd.png) -->
 <img src="https://user-images.githubusercontent.com/78819692/197306530-ecfaf9a1-2e17-4e76-826b-86a8b8f435bd.png" width="400">
-
 
 
 ## Interseções das combinações e classes
