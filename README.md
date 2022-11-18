@@ -134,9 +134,6 @@ Dentro do código, estamos considerando que o processo é:
 
 No modelo padrão, estamos usando a política FIFO ( Firt In, Firt Out), na qual enviamos pra realizar o processo a combinação que chegou primeiro.
 
-Ex: 
-
-
 <!-- <img src="https://user-images.githubusercontent.com/78819692/202767118-bbaa14c3-d30d-43cf-8cd0-d7fd624b93ae.png" width="950"> -->
 | <img src="https://user-images.githubusercontent.com/78819692/202767118-bbaa14c3-d30d-43cf-8cd0-d7fd624b93ae.png" width="950">
 |:--:| 
