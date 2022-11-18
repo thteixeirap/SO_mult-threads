@@ -174,6 +174,34 @@ Media FIFO     | Media SJF
 
 > Portanto, conclui se que temos uma diminuição em 0,003791 segundos da FIFO para a SJF, que é cerca de 31,44% de ganho de tempo na execução das interseções
 
+THREAD      |
+----------- | 
+0.0324383  |
+0.00661514 |
+0.0155683 |   
+0.0104903 |
+0.0128829 | 
+0.00661514 |
+0.00502375 |
+0.0126837 |  
+0.0109973  |
+0.018953 |
+0.00724647  |
+
+Media THREAD |
+----------- |
+0,0126831  |
+
+## Threads 
+
+- Com a implementação das thread's mudamos algumas características do código. A thread `Produtor` é responsável em adiconar no buffer as combinações, portanto, a cada combinação feita é adicionada dentro do buffer que será consumida pela thread `Consumidor`. A consumidor é responsável por ficar procurando no buffer se há combinações feita, encontrando-as ele já as manda para realizar as interseções.
+
+Para teste, usamos 1 thread produtor e 1 consumidor
+
+
+
+
+
 ## Interseção com a hash de classes
 
 - Sempre que encontramos uma interseção de uma combinação fazemos uma outra interseção com a hash de classes com o objetivo de saber qual é a classe que mais tem itens em comum com as interseções das combinações em relação .
