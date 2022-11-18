@@ -132,21 +132,21 @@ Dentro do código, estamos considerando que o processo é:
 - Fazer a interseção entre as chaves dessa combinação
 - Pegar essa interseção encontrada e realizar uma interseção com a HASH de classes para obter a quantidade de sobreposições existentes.
 
-1- No modelo padrão, estamos usando a política `FIFO` ( Firt In, Firt Out), na qual enviamos pra realizar o processo a combinação que chegou primeiro.
+1 - No modelo padrão, estamos usando a política `FIFO` ( Firt In, Firt Out), na qual enviamos pra realizar o processo a combinação que chegou primeiro.
 
 <!-- <img src="https://user-images.githubusercontent.com/78819692/202767118-bbaa14c3-d30d-43cf-8cd0-d7fd624b93ae.png" width="950"> -->
 | <img src="https://user-images.githubusercontent.com/78819692/202767118-bbaa14c3-d30d-43cf-8cd0-d7fd624b93ae.png" width="950">
 |:--:| 
 | Imagem exemplifica a sequência do envio das combinações para processo. Começamos na primeira fila, enviando as combinações de 1, depois de 2, 3 e 4, Após isso fazemos o mesmo procedimento pra as demais linhas abaixo|
 
-2- Para mudarmos a politica, passando para `Menor job primeiro`, temos que mandar para processo as combinações de 1 todas primeiro, depois as combinações de 2 e por seguinte 3 e 4. Para tanto então, usaremos ainda a ideia da politica da FIFO porém mudando a sequencia das combinações.
+2 - Para mudarmos a politica, passando para `Menor job primeiro`, temos que mandar para processo as combinações de 1 todas primeiro, depois as combinações de 2 e por seguinte 3 e 4. Para tanto então, usaremos ainda a ideia da politica da FIFO porém mudando a sequencia das combinações.
 
 
 <!-- ![Captura de tela de 2022-11-18 15-03-47](https://user-images.githubusercontent.com/78819692/202772781-e6ddbeb0-9492-4780-ba6a-2cb68ae3e8a3.png) -->
 <!-- <img src="https://user-images.githubusercontent.com/78819692/202767118-bbaa14c3-d30d-43cf-8cd0-d7fd624b93ae.png" width="950"> -->
 | <img src="https://user-images.githubusercontent.com/78819692/202772781-e6ddbeb0-9492-4780-ba6a-2cb68ae3e8a3.png" width="950">
 |:--:| 
-| Imagem exemplifica a sequência do envio das combinações para processo. Começamos na primeira fila, enviando as combinações de 1, depois de 2, 3 e 4, Após isso fazemos o mesmo procedimento pra as demais linhas abaixo|
+| Imagem exemplifica a nova sequência de envio das combinações para processo. Estamos passando para a fila os processos considerados menores primeiro|
 
 
 ## Interseção com a hash de classes
