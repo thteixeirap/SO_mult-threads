@@ -137,8 +137,8 @@ No modelo padrão, estamos usando a política FIFO ( Firt In, Firt Out), na qual
 Ex: 
 
 
-
-| ![Captura de tela de 2022-11-18 14-18-38](https://user-images.githubusercontent.com/78819692/202767118-bbaa14c3-d30d-43cf-8cd0-d7fd624b93ae.png)
+<!-- <img src="https://user-images.githubusercontent.com/78819692/202767118-bbaa14c3-d30d-43cf-8cd0-d7fd624b93ae.png" width="950"> -->
+| <img src="https://user-images.githubusercontent.com/78819692/202767118-bbaa14c3-d30d-43cf-8cd0-d7fd624b93ae.png" width="950">
 |:--:| 
 | Imagem representa a sequência do envio das combinações para processo |
 
