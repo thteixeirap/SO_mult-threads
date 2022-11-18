@@ -164,6 +164,10 @@ FIFO        | SJF
 0.00707733  | 0.00802264
 0.0166281   | 0.00659891
 
+Media FIFO     | Media SJF
+----------- | ----------
+0,0120589  | 0.008267502
+
 
 ## Interseção com a hash de classes
 
