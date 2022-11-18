@@ -198,6 +198,7 @@ Media THREAD |
 ----------- |
 0,0126831  |
 
+> Com os valores obtidos, conclui que com a implementação das thread's não obtemos um ganho significante, o que na verdade tempos um aumento de tempo comparado com a politica de SJF. 
 
 
 ## Interseção com a hash de classes
