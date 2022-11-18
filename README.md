@@ -2,16 +2,7 @@
  Sistema multitarefa
 </h1>
 
-## Sobre 
-
-<p>
-Neste trabalho vamos construir um sistema de classificação cujas características nos permitirão observar conceitos importantes como: escalonamento e gestão de memória primária. Neste sistema, vamos considerar duas bases de dados D e T. A base D será utilizada para simular a inicialização, fornecendo assim o conceito de bootstrapping, tal como no sistema operacional.
-
-Já a base T representará os processos a serem executados, cada um produzindo uma série de computações pesadas e necessárias, as quais vamos coordenar utilizando um sistema de escalonamento em dois níveis: mecanismo e política. Além disso, abordaremos o conceito de memória tratando de chavear os processos entre memória primária e processador, 
-claro, tudo de forma simulada para que possamos extrair resultados mensuráveis para avaliação.
-
-Para saber mais sobre as etapas do trabalho: [Wiki](https://github.com/thteixeirap/sistemaoperacional/wiki)
-</p>
+* [Sobre](#Sobre)
 
 * [Execução](#Execução)
 
@@ -25,6 +16,21 @@ Para saber mais sobre as etapas do trabalho: [Wiki](https://github.com/thteixeir
 
 * [Threads](#Threads)
 * [Interseção com a hash de classes](#Interseção-com-a-hash-de-classes)
+
+<h1></h1>
+
+
+## Sobre 
+
+<p>
+Neste trabalho vamos construir um sistema de classificação cujas características nos permitirão observar conceitos importantes como: escalonamento e gestão de memória primária. Neste sistema, vamos considerar duas bases de dados D e T. A base D será utilizada para simular a inicialização, fornecendo assim o conceito de bootstrapping, tal como no sistema operacional.
+
+Já a base T representará os processos a serem executados, cada um produzindo uma série de computações pesadas e necessárias, as quais vamos coordenar utilizando um sistema de escalonamento em dois níveis: mecanismo e política. Além disso, abordaremos o conceito de memória tratando de chavear os processos entre memória primária e processador, 
+claro, tudo de forma simulada para que possamos extrair resultados mensuráveis para avaliação.
+
+Para saber mais sobre as etapas do trabalho: [Wiki](https://github.com/thteixeirap/sistemaoperacional/wiki)
+</p>
+
 
 
 
