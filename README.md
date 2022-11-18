@@ -124,6 +124,24 @@ Media 1     | Media 2
 
 > Conclui se que no método de verificação do restante das combinações temos cerca de 31% no ganho de tempo na execução das interseções em relação a execução na qual veriicamos apenas no ínicio em CACHE.
 
+## Política
+
+Dentro do código, estamos considerando que o processo é:
+
+- Pegar uma combinação
+- Fazer a interseção entre as chaves dessa combinação
+- Pegar essa interseção encontrada e realizar uma interseção com a HASH de classes para obter a quantidade de sobreposições existentes.
+
+No modelo padrão, estamos usando a política FIFO ( Firt In, Firt Out), na qual enviamos pra realizar o processo a combinação que chegou primeiro.
+
+Ex: 
+
+
+
+| ![Captura de tela de 2022-11-18 14-18-38](https://user-images.githubusercontent.com/78819692/202767118-bbaa14c3-d30d-43cf-8cd0-d7fd624b93ae.png)
+|:--:| 
+| Imagem representa a sequência do envio das combinações para processo |
+
 ## Interseção com a hash de classes
 
 - Sempre que encontramos uma interseção de uma combinação fazemos uma outra interseção com a hash de classes com o objetivo de saber qual é a classe que mais tem itens em comum com as interseções das combinações em relação .
