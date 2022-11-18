@@ -148,6 +148,22 @@ Dentro do código, estamos considerando que o processo é:
 |:--:| 
 | Imagem exemplifica a nova sequência de envio das combinações para processo. Estamos passando para a fila os processos considerados menores primeiro|
 
+* Comparação
+
+FIFO        | SJF
+----------- | ----------
+0.0155707   | 0.00574528
+0.01173  | 0.00814319
+0.0172626    | 0.0127659
+0.0171599  | 0.012068
+0.00893674   | 0.00783486
+0.00931155  | 0.0119587
+0.0106861  | 0.00770536
+0.00668645   | 0.00717361
+0.0115985  | 0.00742447
+0.00707733  | 0.00802264
+0.0166281   | 0.00659891
+
 
 ## Interseção com a hash de classes
 
