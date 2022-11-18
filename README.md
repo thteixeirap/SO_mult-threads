@@ -17,6 +17,7 @@ claro, tudo de forma simulada para que possamos extrair resultados mensuráveis 
 Para saber mais sobre as etapas do trabalho: [Wiki](https://github.com/thteixeirap/sistemaoperacional/wiki)
 </p>
 
+<h1></h1>
 
 * [Execução](#Execução)
 
@@ -31,7 +32,7 @@ Para saber mais sobre as etapas do trabalho: [Wiki](https://github.com/thteixeir
 * [Threads](#Threads)
 * [Interseção com a hash de classes](#Interseção-com-a-hash-de-classes)
 
-<h1></h1>
+
 
 ## Execução 
 
