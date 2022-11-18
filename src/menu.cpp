@@ -7,57 +7,52 @@ void menu()
 
     do
     {
+        // printf("\n\n");
+        // printf("      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+        // printf("      @                                                   @\n");
+        // printf("      @                        MENU                       @\n");
+        // printf("      @                                                   @\n");
+        // printf("      @    [1] -> Read and store [D.csv] and [T.csv]      @\n");
+        // printf("      @    [2] -> Make the T hash combinates              @\n");
+        // printf("      @    [3] -> Make intersection                       @\n");
+        // printf("      @    [0] -> Exit                                    @\n");
+        // printf("      @                                                   @\n");
+        // printf("      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n\n");
 
-        printf("\n\n");
-        printf("      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-        printf("      @                                                   @\n");
-        printf("      @                        MENU                       @\n");
-        printf("      @                                                   @\n");
-        printf("      @    [1] -> Read and store [D.csv] and [T.csv]      @\n");
-        printf("      @    [2] -> Make the T hash combinates              @\n");
-        printf("      @    [3] -> Make intersection                       @\n");
-        printf("      @    [0] -> Exit                                    @\n");
-        printf("      @                                                   @\n");
-        printf("      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n\n");
-
-        cout << endl
-             << "Choose an option:  ";
-        cin >> op;
+        int op = 1;
 
         switch (op)
         {
         case 1:
+            steady_clock::time_point t1 = steady_clock::now();
             readFileD("src/dataset/D.csv");
-            cout << endl
-                 << "\tFile D Read" << endl;
             readFileT("src/dataset/T.csv");
-            cout << endl
-                 << "\tFile T Read" << endl;
             // printOutHashD();
             // printOutHashT();
-            break;
-
-        case 2:
-
             makeCombinate();
-            cout << endl << "\tCombinations Made" << endl;
-            // printOutHashCombinate();
-            break;
+            printOutHashCombinate();
 
-        case 0:
-            cout << endl
-                 << "Finished Program" << endl
-                 << endl;
-            break;
-
-        case 3:
+            steady_clock::time_point t1Intersection = steady_clock::now();
             intersection();
+            steady_clock::time_point t2Intersection = steady_clock::now();
+            duration<double> tempoIntersection = duration_cast<duration<double>>(t2Intersection - t1Intersection);
+            cout << "Tempo Interseção: " << tempoIntersection.count() << " Segundos " << endl;
+
+            steady_clock::time_point t2 = steady_clock::now();
+            duration<double> tempo = duration_cast<duration<double>>(t2 - t1);
+            cout << "Tempo de Total: " << tempo.count() << " Segundos " << endl;
+            // displayResult();
+            // printOutIntersection();
             exit(0);
             break;
 
-        default:
-            break;
+            // case 0:
+            //     cout << endl
+            //          << "Finished Program" << endl
+            //          << endl;
+            //     break;
+            // default:
+            //     break;
         }
-
     } while (op != 0);
 }
